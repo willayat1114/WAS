@@ -17,9 +17,7 @@ This script allows you to activate Windows or Office in one click.
 1. Run [WAS.bat](https://github.com/willayat1114/WAS/blob/main/WAS.bat).
 2. Select option `3`.
 ![Installation Screenshot](https://github.com/willayat1114/WAS/blob/main/images/1.png)
-3. Accept all Terms of Service (TOS).  
-   ![Installation Screenshot](https://github.com/willayat1114/WAS/blob/main/images/2.png)
-4. Select the Office folder where [WAS.bat](https://github.com/willayat1114/WAS/blob/main/WAS.bat) is located. The script will handle the installation automatically.  
+3. The script will handle the installation automatically.  
    ![Installation Screenshot](https://github.com/willayat1114/WAS/blob/main/images/3.png)
 
 ## Check Activation Status
