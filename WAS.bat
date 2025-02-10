@@ -32,8 +32,16 @@ if "%choice%"=="2" (
 if "%choice%"=="3" (
     echo Installing Office...
     cd /d "%~dp0Office"
+
     if exist ODT.exe (
-        ODT.exe
+        echo Extracting Office files...
+        ODT.exe /extract:"%~dp0Office" /quiet /norestart
+        
+        if %errorlevel% neq 0 (
+            echo Extraction failed! Trying interactive mode...
+            start /wait ODT.exe
+        )
+
         echo ODT.exe executed successfully.
     ) else (
         echo ERROR: ODT.exe not found!
@@ -41,14 +49,18 @@ if "%choice%"=="3" (
         goto menu
     )
 
-    if exist setup.exe (
-        echo Running Office Setup...
-        setup.exe /configure configuration.xml
-    ) else (
-        echo ERROR: setup.exe not found!
+    :: Ensure setup.exe exists in Office folder
+    if not exist "%~dp0Office\setup.exe" (
+        echo ERROR: setup.exe not found in Office folder!
         pause
         goto menu
     )
+
+    :: Run Office Setup
+    echo Running Office Setup...
+    cd /d "%~dp0Office"
+    setup.exe /configure configuration.xml
+    
     echo Office installation complete!
     pause
     goto menu
